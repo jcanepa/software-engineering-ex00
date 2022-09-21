@@ -12,19 +12,20 @@ class GamePlayController
             # return process_command()
             command = gets.split(" ", 3)
 
-            # first command is not an option
+            # command is not an option
             if !@@options.include?(command[0])
                 print_help()
                 next
             end
 
-            # allow user to terminate the app
+            # allow user to terminate game play
             if command[0].eql?('quit')
                 continue = false
-            else
-                # hand off the calculation to SuperMathyBot
-                puts 'I guess I\'ll do some math'
+                next
             end
+
+            # hand off calculation to SuperMathyBot
+            puts 'I guess I\'ll do some math'
         end
     end
 
