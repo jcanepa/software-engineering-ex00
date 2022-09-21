@@ -26,13 +26,13 @@ class App
                 next
             end
 
-            # hand off calculation to SuperMathyBot object
+            # hand off calculation to our SuperMathyBot:
             # first argument is the operation to be performed (method)
             # second and third are numbers to operate on (arguments)
             @mathbot.send(
                 command[0],
-                command[1],
-                command[2])
+                command[1].to_f,
+                command[2].to_f)
         end
     end
 
