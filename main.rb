@@ -28,8 +28,8 @@ class GamePlayController
             end
 
             # hand off calculation to SuperMathyBot
-            # first argument is the operation to be performed (method)
-            # second is a collection of arguments to supply the method with (the numbers to operate on)
+            # first argument is the operation to be performed (MathBot method)
+            # second and third are supplied to the method (numbers to operate on)
             @mathbot.send(
                 command[0],
                 command[1], command[2])
@@ -43,8 +43,3 @@ class GamePlayController
 end
 
 GamePlayController.new.run()
-# Show "SuperMathyBot" command prompt
-# accept command and two optional numbers
-# validate command (quit ends the program)
-# process arithmatic commands using mathbot
-# answer returned by mathbot is a float
