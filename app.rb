@@ -1,6 +1,6 @@
 require_relative "mathbot"
 
-class GamePlayController
+class App
     @@options = ['add', 'sub', 'mul', 'div', 'quit']
 
     def initialize
@@ -12,34 +12,35 @@ class GamePlayController
 
         while continue
             print 'SuperMathyBot> '
-
             command = gets.split(" ", 3)
 
-            # command is not an option
+            # validate command is an available option
             if !@@options.include?(command[0])
                 print_help()
                 next
             end
 
-            # allow user to terminate game play
+            # allow user to exit app
             if command[0].eql?('quit')
                 continue = false
                 next
             end
 
-            # hand off calculation to SuperMathyBot
-            # first argument is the operation to be performed (MathBot method)
-            # second and third are supplied to the method (numbers to operate on)
+            # hand off calculation to SuperMathyBot object
+            # first argument is the operation to be performed (method)
+            # second and third are numbers to operate on (arguments)
             @mathbot.send(
                 command[0],
-                command[1], command[2])
+                command[1],
+                command[2])
         end
     end
 
+    # supply the user with all available commands
     def print_help
         puts 'usage: add|sub|mul|div v0 v1'
         puts '       quit'
     end
 end
 
-GamePlayController.new.run()
+App.new.run()
